@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<style>
+      .button {
+        background-color: #293437;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 16px;
+        transition: all 1.5s ease-in-out;
+      }
+      .button:hover {
+        background-color: #182225;
+        color: #FFFFFF;
+        border: 2px solid #FFFFFF;
+      }
+      body {
+        transition: background-color 1.5s ease;
+      }
+    </style>
+<style>
+      .loading {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: opacity 0.5s;
+      }
+      .loading::after {
+        content: "";
+        display: block;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        border: 10px solid #0084ff;
+        border-color: #0084ff transparent #0084ff transparent;
+        animation: spin 1.5s linear infinite;
+        transition: opacity 0.5s;
+      }
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      .content {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <style>
+      h1 {
+        text-align: center;
+        color: white;
+        text-shadow: 0 0 5px #fff, 0 0 10px #e60073;
+      }
+    </style>
+        <style>
+      .textarea1 {
+        width: 50%;
+        height: 10px;
+        font-size: 16px;
+        font-family: Arial;
+        padding: 10px;
+        border-radius: 5px;
+        border: 3px solid #293437;
+        resize: none;
+      }
+    </style>
+<style>
+      body {
+        background: #293437;
+        margin-left: 10%;
+        margin-right: 10%;
+        margin-top: 5%;
+        margin-bottom: 5%;
+        font-family: 'Astloch';
+      }
+      .text {
+        color: red;
+        font-family: 'Astloch', sans-serif;
+        font-size: 20px;
+        transition: 0.5s ease;
+        text-align: center;
+      }
+      .text2 {
+        color: red;
+        font-family: 'Astloch', sans-serif;
+        font-size: 30px;
+        transition: 0.5s ease;
+        text-align: center;
+      }
+      .text3 {
+        color: red;
+        font-family: 'Astloch', sans-serif;
+        font-size: 40px;
+        transition: 0.5s ease;
+        text-align: center;
+      }
+      div {
+        background: white;
+        padding: 10px;
+        border-radius: 10px;
+      }
+      @keyframes fly {
+        0% { transform: translate(0px,0px) rotate(0deg); }
+        25% { transform: translate(0px,0px) rotate(20deg); }
+        50% { transform: translate(0px,0px) rotate(-20deg); }
+        75% { transform: translate(0px 0px) rotate(0deg); }
+        100% { transform: translate(0px,0px) rotate(0deg); }
+      }
+      @keyframes down {
+        0% { transform: translate(0px,0px) rotate(0deg); }
+        25% { transform: translate(0px,0px) rotate(0deg); }
+        50% { transform: translate(0px,0px) rotate(0deg); }
+        75% { transform: translate(0px 0px) rotate(0deg); }
+        100% { transform: translate(0px,0px) rotate(0deg); }
+      }
+      @media only screen and (max-width: 768px) {
+        body {
+          margin-left: 5%;
+          margin-right: 5%;
+        }
+      }
+    </style>
+<html>
+<head>
+	<title>MLA Format Copyright Maker</title>
+</head>
+<body>
+<div><center>
+	<h1 class="text">MLA Format Copyright Maker</h1>
+	<form>
+		<label for="author">Author:</label>
+		<input type="text" id="author" name="author"><br><br>
+		<label for="title">Title of Work:</label>
+		<input type="text" id="title" name="title"><br><br>
+		<label for="publicationDate">Publication Date:</label>
+		<input type="text" id="publicationDate" name="publicationDate"><br><br>
+		<label for="publisher">Publisher:</label>
+		<input type="text" id="publisher" name="publisher"><br><br>
+		<label for="url">URL (if applicable):</label>
+		<input type="text" id="url" name="url"><br><br>
+		<button class="button"type="button" onclick="generateMLA()">Generate MLA Format Copyright</button>
+	</form>
+	<div id="citationContainer"></div>
+	<script>
+		function generateMLA() {
+			const author = document.getElementById("author").value;
+			const title = document.getElementById("title").value;
+			const publicationDate = document.getElementById("publicationDate").value;
+			const publisher = document.getElementById("publisher").value;
+			const url = document.getElementById("url").value;
+
+			let citation = `${author}. "${title}." ${publisher}, ${publicationDate}.`;
+
+			if (url) {
+				citation += ` ${url}.`;
+			}
+
+			const citationElement = document.createElement("p");
+			citationElement.textContent = citation;
+
+			document.getElementById("citationContainer").appendChild(citationElement);
+		}
+	</script>
+</body>
+</html>
